@@ -1,0 +1,39 @@
+
+# https://docs.bazel.build/versions/master/be/c-cpp.html#cc_library
+# Static libriary to include in client project
+cc_library(
+    name = "MemAllocator",
+    srcs = glob(
+        include = [
+            "src/*.cpp"
+            ],
+        exclude = [
+            "src/main.cpp"
+        ],
+    ), 
+    hdrs = glob([
+        "src/*.h", 
+        "src/*.inl"
+    ]),
+    copts = [
+        "-Ivendor/googletest/googletest/include/"
+    ],
+    deps = [
+        "@GTest//:gtest"
+    ],
+)
+
+# https://docs.bazel.build/versions/master/be/c-cpp.html#cc_binary
+# Binary that runs examples, benchmaking, also a client
+cc_binary(
+    name = "MemAllocator_main",
+    srcs = glob([
+        "src/main.cpp"
+    ]),
+    copts = [
+        "-Ivendor/googletest/googletest/include/"
+    ],
+    deps = [
+        ":MemAllocator"
+    ],
+)
