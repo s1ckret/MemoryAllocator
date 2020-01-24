@@ -15,12 +15,6 @@ cc_library(
         "src/*.h", 
         "src/*.inl"
     ]),
-    copts = [
-        "-Ivendor/googletest/googletest/include/"
-    ],
-    deps = [
-        "@GTest//:gtest"
-    ],
 )
 
 # https://docs.bazel.build/versions/master/be/c-cpp.html#cc_binary
@@ -30,10 +24,26 @@ cc_binary(
     srcs = glob([
         "src/main.cpp"
     ]),
+    deps = [
+        ":MemAllocator"
+    ],
+)
+
+# https://docs.bazel.build/versions/master/be/c-cpp.html#cc_test
+# Tests
+cc_test(
+    name = "MemAllocator_test",
+    size = "small",
+    srcs = glob([
+        "tests/*_unittest.cpp",
+        "tests/test_main.cpp"
+    ]),
     copts = [
+        "-Isrc/",
         "-Ivendor/googletest/googletest/include/"
     ],
     deps = [
+        "@GTest//:gtest",
         ":MemAllocator"
     ],
 )
