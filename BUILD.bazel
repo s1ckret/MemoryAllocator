@@ -5,7 +5,8 @@ cc_library(
     name = "MemAllocator",
     srcs = glob(
         include = [
-            "src/*.cpp"
+            "src/*.cpp",
+            "src/**/*.cpp",
             ],
         exclude = [
             "src/main.cpp"
@@ -13,7 +14,9 @@ cc_library(
     ), 
     hdrs = glob([
         "src/*.h", 
-        "src/*.inl"
+        "src/*.inl",
+        "src/**/*.h", 
+        "src/**/*.inl"
     ]),
 )
 
