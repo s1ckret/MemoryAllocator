@@ -2,7 +2,7 @@
 # https://docs.bazel.build/versions/master/be/c-cpp.html#cc_library
 # Static libriary to include in client project
 cc_library(
-    name = "MemAllocator",
+    name = "MemoryAllocator",
     srcs = glob(
         include = [
             "src/*.cpp",
@@ -23,19 +23,19 @@ cc_library(
 # https://docs.bazel.build/versions/master/be/c-cpp.html#cc_binary
 # Binary that runs examples, benchmaking, also a client
 cc_binary(
-    name = "MemAllocator_main",
+    name = "MemoryAllocator_main",
     srcs = glob([
         "src/main.cpp"
     ]),
     deps = [
-        ":MemAllocator"
+        ":MemoryAllocator"
     ],
 )
 
 # https://docs.bazel.build/versions/master/be/c-cpp.html#cc_test
 # Tests
 cc_test(
-    name = "MemAllocator_test",
+    name = "MemoryAllocator_test",
     size = "small",
     srcs = glob([
         "tests/*_unittest.cpp",
@@ -47,6 +47,6 @@ cc_test(
     ],
     deps = [
         "@GTest//:gtest",
-        ":MemAllocator"
+        ":MemoryAllocator"
     ],
 )
