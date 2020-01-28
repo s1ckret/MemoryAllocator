@@ -17,3 +17,12 @@
         #define ENVIRONMENT32
     #endif
 #endif
+
+
+#ifdef ENVIRONMENT64
+    #define WORD 8
+#endif
+
+#ifdef ENVIRONMENT32
+    #define WORD 4
+#endif
