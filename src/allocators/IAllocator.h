@@ -4,8 +4,8 @@
 
 class IAllocator {
 public:
-    IAllocator();
-    ~IAllocator();
+    IAllocator( );
+    ~IAllocator( );
 
     virtual void * allocate( size_t size ) = 0;
     virtual void deallocate( void * data_ptr ) = 0;
