@@ -20,9 +20,9 @@
 
 
 #ifdef ENVIRONMENT64
-    #define WORD 8
+    #define WORD_SIZE 8
 #endif
 
 #ifdef ENVIRONMENT32
-    #define WORD 4
+    #define WORD_SIZE 4
 #endif
