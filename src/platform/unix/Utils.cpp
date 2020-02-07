@@ -15,6 +15,9 @@ namespace Utils {
         return block;
     }
 
+    void * getCurrentBreak( ) {
+        return sbrk( 0 );
+    }
 #endif
 
 };
