@@ -2,8 +2,6 @@
 
 #include <cstddef>
 
-#define _DEBUG
-
 using byte_t = char;
 
 class IAllocator {
