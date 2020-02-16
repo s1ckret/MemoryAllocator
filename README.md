@@ -26,3 +26,11 @@ bazel build :MemoryAllocator --copt=-m32 --cxxopt=-m32 --linkopt=-m32
 ```
  *Note: you have to be in folder with WORKSPACE file.*
 
+### How to get into the debug mode
+Add the *\-\-cxxopt=-D_DEBUG* to your command
+```shell
+bazel build :<Target Name> --cxxopt=-D_DEBUG
+# Example
+bazel build :MemoryAllocator --cxxopt=-D_DEBUG
+```
+
